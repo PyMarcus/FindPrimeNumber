@@ -7,20 +7,14 @@ CAPTURE: list = []
 def choiceNumber(number: str) -> int:
     simbols = ['+', ',', '-', ':', '@', '*', '/']
     try:
-        if number.strip() not in simbols:
-            eval(f"{number} + 1")
-    except Exception:
-        return 0
+        if number.strip() not in simbols: eval(f"{number} + 1")
+    except Exception: return 0
     else:
-        try:
-            int(number)
-        except Exception:
-            return 0
+        try: int(number)
+        except Exception: return 0
         else:
-            if isprime(int(number)):
-                return int(number)
-            else:
-                return 0
+            if isprime(int(number)): return int(number)
+            else: return 0
 
 
 def capture(*args) -> list[dict]:
