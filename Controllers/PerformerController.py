@@ -56,7 +56,7 @@ class Performer(Thread):
             path_bar = '/'
         else:
             path_bar = '\\'
-        ways: list[str] = [self.path + path_bar + files for files in for_read[self.init :self.count + 1]]
+        ways: list[str] = [self.path + path_bar + files for files in for_read[self.init:]]
         print("ANALISANDO: ")
         for path in ways:
             # content = glob(path + "/*/*/*/", recursive=True)
