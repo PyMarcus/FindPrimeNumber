@@ -57,15 +57,18 @@ class Performer(Thread):
         else:
             path_bar = '\\'
         ways: list[str] = [self.path + path_bar + files for files in for_read[self.init :self.count + 1]]
+        print("ANALISANDO: ")
         for path in ways:
             # content = glob(path + "/*/*/*/", recursive=True)
+            print(path)
             content = [dir[0] for dir in os.walk(path)]
             for c in content:
                 hit = [file for file in os.listdir(c) if 'txt' in os.path.splitext(file)[1]]
                 if len(hit) > 0:
                     os.chdir(c)
                     for name_file in hit:
-                        with open(name_file) as f:
+                        print("NAME: ",c + name_file)
+                        with open(c + "\\" + name_file) as f:
                             try:
                                 finder = f.read().split(',')
                             except Exception as e:
